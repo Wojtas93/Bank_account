@@ -1,25 +1,28 @@
 package pl.sdacademy.bank;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import pl.sdacademy.person.Person;
+
+import javax.persistence.*;
 import java.util.Currency;
+import java.util.List;
 
 @Entity
 public class BankAcount {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String owner;
+    @OneToOne
+    private Person owner;
     private Currency amount;
     private String acountNumber;
     private AccountType accountType;
+    @OneToMany
+    private List<Person> permision;
 
     public BankAcount() {
     }
 
-    public BankAcount(String owner, Currency amount, String acountNumber, AccountType accountType) {
+    public BankAcount(Person owner, Currency amount, String acountNumber, AccountType accountType) {
         this.owner = owner;
         this.amount = amount;
         this.acountNumber = acountNumber;
@@ -30,7 +33,7 @@ public class BankAcount {
         return id;
     }
 
-    public String getOwner() {
+    public Person getOwner() {
         return owner;
     }
 
@@ -46,7 +49,7 @@ public class BankAcount {
         return accountType;
     }
 
-    public void setOwner(String owner) {
+    public void setOwner(Person owner) {
         this.owner = owner;
     }
 
@@ -60,6 +63,10 @@ public class BankAcount {
 
     public void setAccountType(AccountType accountType) {
         this.accountType = accountType;
+    }
+
+    public void setPermision(List<Person> permision) {
+        this.permision = permision;
     }
 
     @Override
