@@ -1,10 +1,10 @@
 package pl.sdacademy.person;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import pl.sdacademy.bank.BankAcount;
+
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Person {
@@ -15,7 +15,11 @@ public class Person {
     private String lastname;
     private Date birthdate;
     private Integer personalNumber;
+    @OneToMany
+    private List<BankAcount> accounts;
 
+    public Person() {
+    }
     public Integer getId() {
         return id;
     }
@@ -52,8 +56,7 @@ public class Person {
         this.personalNumber = personalNumber;
     }
 
-    public Person() {
-    }
+
 
     @Override
     public String toString() {

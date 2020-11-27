@@ -11,7 +11,7 @@ public class BankAcount {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @OneToOne
+    @ManyToOne
     private Person owner;
     private Currency amount;
     private String acountNumber;
