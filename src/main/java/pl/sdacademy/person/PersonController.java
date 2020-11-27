@@ -83,7 +83,7 @@ public class PersonController {
 
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> delete(@PathVariable int id) {
         try {
             personRepository.delete(personRepository.findById(id).get());

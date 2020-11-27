@@ -86,7 +86,7 @@ public class BankAccountController {
 
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> delete(@PathVariable int id) {
         try {
             bankAcountRepository.delete(bankAcountRepository.findById(id).get());
