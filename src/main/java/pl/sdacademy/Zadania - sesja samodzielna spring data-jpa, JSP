@@ -1,0 +1,39 @@
+1. Stwórz projekt z wykorzystaniem spring data-jpa.
+Utwórz encję:
+Konto bankowe (String właściciel, int środki, String numer, boolean prywatne).
+2. Utwórz repozytorium dla encji konto bankowe.
+3. Spraw, aby przy inicjalizacji kontekstu springa została utworzona odpowiednia tabela.
+4. Utwórz kontroler restowy dla encji konto bankowe (get /bank-account,
+ get /bank-account/{id}, post /bank-account).
+5. Dodaj kontrolerowi obsługę żądań do usuwania konta bankowego oraz jego aktualizacji zgodnie
+z architekturą REST (w razie czego wygoogluj,
+ jak powinno być konstruowane takie żądanie, tj. jaka metoda i jaka ścieżka).
+6. Zmodyfikuj typ pola środki konta bankowego na BigDecimal.
+7. Zamień pole z informacją o tym, czy konto jest prywatne enumem zagnieżdżonym
+w klasie konto bankowe - typ konta może być prywatny lub firmowy.
+Upewnij się, że wszystkie metody kontrolera będą działać.
+8. Utwórz encję osoba (imię, nazwisko, data urodzenia). Utwórz repozytorium dla osoby.
+9. Utwórz kontroler restowy dla osoby, analogiczny do tego dla konta bankowego.
+10. Spraw, aby właściciel konta bankowego był osobą, a nie tekstem.
+11. Dodaj kontu bankowemu pole - osoby upoważnione.
+ Dodaj kontrolerowi konta bankowego obsługę żądania metodą post
+ pod ścieżkę /bank-account/{accountId}/permision/{personId}
+Żądanie skutkuje dodaniem osoby upoważnionej do obsługi konta.
+12. Dodaj analogicznie obsługę żądania metodą delete /bank-account/{accountId}/permision/{personId}.
+
+----------------
+1. Stwórz projekt, w którym będzie można umieszczać dokumenty JSP. Stwórz dokument JSP.
+W odpowiedzi na żądanie ma generować liczbę znaków parametru o nazwie param1.
+2. Stwórz dokument JSP z formularzem o polach:
+- tekstowe x
+- tekstowe y
+- lista rozwijana z opcjami: dodaj, odejmij, podziel, pomnóż.
+W przypadku zatwierdzenia formularza zostanie wyświetlony wynik zgodny z jego wypełnieniem.
+Nie obsługuj błędów.
+3. W przypadku błędnego wypełnienia wyświetl odpowiednie komunikaty
+przy polach (uwzględnij również próbę dzielenia przez 0).
+4*. W dokumencie JSP do dyspozycji zmienną o nazwie session - jest do niej przypisany obiekt reprezentujący sesję http.
+Metoda setAttribute służy do zapisania danych w sesji.
+Utwórz formularz z polem tekstowym z etykietą "Nazwa przedmiotu".
+Osługa  zatwierdzenia formularza sprawi, że do sesji zostanie dodana wartość z formularza.
+ Wszystkie wartości dodane w ramach sesji będą wyświetlane pod formularzem.
